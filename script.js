@@ -1,6 +1,6 @@
 
 //main variables
-const employees = [];
+let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
 const gridContainer = document.querySelector('.grid-container');
@@ -44,8 +44,15 @@ gridContainer.innerHTML = employeeHTML;
 }
 
 //modal display function
-function displayModal(index) {
-    let {name, dob, phone, email, location: { city, street, state, postcode }, picture} = employees[index];
+function displayModal (index) {
+    let {
+        name, 
+        dob,
+        phone,
+        email,
+        location: { city, street, state, postcode },
+        picture
+    } = employees[index];
     let date = new Date(dob.date);
     
     // put modal- in front of all class names??
@@ -63,17 +70,16 @@ function displayModal(index) {
     </div>
     `;
 
-    overlay.classList.remove("hidden");
+    overlay.classList.remove('hidden');
     modalContainer.innerHTML = modalHTML;
 }
 
 
 //click event for open modal display
-gridContainer.addEventListener('click', e => {
+gridContainer.addEventListener("click", e => {
     if (e.target !== gridContainer) {
         const card = e.target.closest(".card");
-        const index = card.getAttribute('data-index');
-
+        let index = card.getAttribute("data-index");
         displayModal(index);
     }
 });
