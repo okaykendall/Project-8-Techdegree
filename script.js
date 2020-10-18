@@ -33,7 +33,7 @@ employees.forEach((employee, index) => {
     <div class="card" data-index="${index}">
         <img class="avatar" src="${picture.large}"/>
         <div class="text-container">
-            <h2 class="name">${name.first} ${name.last}</h2>
+            <h2 class="cardName">${name.first} ${name.last}</h2>
             <p class="email">${email}</p>
             <p class="address">${city}</p>
         </div>
@@ -87,4 +87,44 @@ gridContainer.addEventListener("click", e => {
 //modal closue click event
 modalClose.addEventListener('click', () => {
     overlay.classList.add('hidden');
+});
+
+//next and previous buttons
+
+const next = document.querySelector(".nextButton");
+const previous = document.querySelector(".prevButton");
+
+let i = 0;
+next.addEventListener('click', (e) => {
+    if (i < 11) {
+        i++;
+    }
+    displayModal(i);
+});
+
+previous.addEventListener('click', (e) => {
+    if (i > 0) {
+        i--;
+    }
+    displayModal(i);
+});
+
+//search barrr
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function (e) {
+  const input = e.target.value.toUpperCase();
+  const cards = document.querySelectorAll(".card");
+  const cardName = document.querySelector('.cardName')
+  
+  Array.from(cards).forEach(function(cards){
+  const name = cards.textContent;
+      if(name.toUpperCase().indexOf(input) !== -1) {
+            cards.style.display = 'flex';
+            
+      }  else {
+            cards.style.display = 'none';
+      }
+})
+  
 });

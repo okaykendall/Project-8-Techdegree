@@ -15,7 +15,7 @@ header {
     font-weight: 300
 }
 
-h1, h2 {
+h1, h2, input {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -106,6 +106,32 @@ padding: 7px;
     border-radius: none;
     box-shadow: none;
 }
+
+.nextButton {
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    top: 245px;
+  }
+  
+  .prevButton {
+    position: absolute;
+    cursor: pointer;
+    left: 10px;
+    top: 245px;
+  }
+
+  .prevButton,
+  .nextButton,
+  .modal-close {
+      transition: 1s color;
+  }
+
+  .prevButton:hover,
+  .nextButton:hover,
+  .modal-close:hover {
+    color: darkcyan;
+  }
 
 .hidden {
     display: none;
