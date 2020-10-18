@@ -55,7 +55,7 @@ function displayModal (index) {
     } = employees[index];
     let date = new Date(dob.date);
     
-    // put modal- in front of all class names??
+    
     const modalHTML = `
     <img class="avatar" src="${picture.large}"/>
     <div class="text-container">
@@ -84,7 +84,7 @@ gridContainer.addEventListener("click", e => {
     }
 });
 
-//modal closue click event
+//modal close click event
 modalClose.addEventListener('click', () => {
     overlay.classList.add('hidden');
 });
